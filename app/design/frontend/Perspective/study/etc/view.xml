@@ -7,9 +7,9 @@
                 <width>250</width>
                 <height>250</height>
             </image>
-            <image id="category_page_list" type="small_image">
-                <width>250</width>
-                <height>250</height>
+            <image id="new_image_role_for_list_view" type="small_image">
+                <width>150</width>
+                <height>150</height>
             </image>
         </images>
     </media>
