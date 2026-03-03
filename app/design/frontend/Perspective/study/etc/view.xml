@@ -13,4 +13,10 @@
             </image>
         </images>
     </media>
+
+    <vars module="Magento_Catalog">
+        <var name="gallery">
+            <var name="navdir">vertical</var>
+        </var>
+    </vars>
 </view>
