@@ -3,5 +3,13 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <move element="product.info.type" destination="product.info.main" after="alert.urls" before="product.info"/>
+
+        <referenceContainer name="product.info.price">
+            <container name="custom.product.price.wrapper" as="custom_product_price_wrapper" htmlTag="div" htmlClass="price-box-wrapper" after="product.info.review">
+                <block class="Magento\Framework\View\Element\Template" name="custom.price.label" template="Magento_Catalog::custom_price_label.phtml" before="product.price.final"/>
+            </container>
+        </referenceContainer>
+
+        <move element="product.price.final" destination="custom.product.price.wrapper" after="custom.price.label"/>
     </body>
 </page>
