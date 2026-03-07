@@ -11,5 +11,11 @@
         </referenceContainer>
 
         <move element="product.price.final" destination="custom.product.price.wrapper" after="custom.price.label"/>
+
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Product Details</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>
