@@ -29,3 +29,27 @@
         }
     }
 }
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    .catalog-category-view {
+
+        .block-compare,
+        .block-wishlist {
+            .block-title {
+    
+                > strong {
+                    display: inline-block;
+                    .lib-css(background, @color-yellow-light1);
+                    border-radius: 8px;
+                    padding: 8px 16px;
+    
+                    .lib-css(color, @color-blue3);
+                    .lib-css(font-family, @font-family__monospace);
+                    .lib-font-size(@font-size__xl);
+                    .lib-css(font-weight, @font-weight__semibold);
+                }
+            }
+        }
+    }
+}
