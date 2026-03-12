@@ -1,0 +1,55 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .catalog-category-view {
+        .page-title {
+           text-align: center;
+        }
+    }
+
+    .catalog-product-view {
+        .product-info-main {
+            .stock.available {
+                margin-block-start: 20px;
+            }
+
+            .configurable-variation-qty {
+                display: none;
+            }
+
+            .price-box-wrapper {
+                display: flex;
+                align-items: baseline;
+
+                .price-box-label {
+                    margin-inline-end: 5px;
+
+                    .box-label {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    .catalog-category-view {
+        .block-compare {
+            .block-title {
+                > strong {
+                    .perspective-block-card-title();
+                }
+            }
+        }
+    }
+}
