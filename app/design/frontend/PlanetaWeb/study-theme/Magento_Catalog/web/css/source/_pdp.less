@@ -1,8 +1,74 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .product-info-main {
+        .product-info-price {
+            .price-box {
+                .price-container {
+                    > span {
+                        display: inline-block;
+                        .lib-css(color, @custom__red__color);
+                        text-transform: uppercase;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .product-info-price {
+        .price-box {
+            .normal-price {
+                .price-container {
+                    .price {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
     .product-info-main {
         .page-title-wrapper {
             .page-title {
                 margin-top: 12px;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .product-info-main {
+        .product-add-form {
+            .product-options-bottom {
+                .action.primary,
+                .action-primary {
+                    .lib-css(background, @custom__red__color);
+                    border-color: @custom__red__color;
+
+                    &:hover {
+                        .lib-css(background, @custom__red__color-hover);
+                        border-color: @custom__red__color-hover;
+                    }
+
+                    &:active {
+                        .lib-css(background, @custom__red__color-hover);
+                        .lib-css(border-color, @custom__red__color-hover);
+                    }
+                }
             }
         }
     }
