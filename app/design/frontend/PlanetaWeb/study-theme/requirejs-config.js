@@ -1,7 +1,7 @@
 var config = {
     map: {
         '*': {
-            studyCustomComponent: 'js/study-custom-component',
+            slickCarousel: 'js/slick-carousel',
         }
     },
     paths: {
