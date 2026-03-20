@@ -3,7 +3,7 @@ define([
     'slick'
 ], function ($) {
 
-    return function (element) {
+    return function (config, element) {
         $(element).slick({
             dots: true,
             infinite: true,
@@ -12,7 +12,7 @@ define([
             slidesToScroll: 1,
             responsive: [
                 {
-                    breakpoint: 768,
+                    breakpoint: 769,
                     settings: {
                         slidesToShow: 2
                     }
