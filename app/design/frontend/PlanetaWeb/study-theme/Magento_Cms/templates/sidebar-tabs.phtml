@@ -3,7 +3,9 @@
     <div class="item title" data-role="collapsible">
         <a class="switch" data-toggle="trigger" href="#tab-cars">Tab1</a>
     </div>
-    <div id="tab-cars" class="item content" data-role="content">Cars content</div>
+    <div id="tab-cars" class="item content" data-role="content">
+        <?= $block->getChildHtml('homepage_carousel') ?>
+    </div>
 
     <div class="item title" data-role="collapsible">
         <a class="switch" data-toggle="trigger" href="#tab-movies">Tab2</a>
