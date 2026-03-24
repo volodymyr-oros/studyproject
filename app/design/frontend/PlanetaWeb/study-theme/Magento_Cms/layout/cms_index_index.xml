@@ -17,5 +17,13 @@
                 <block class="Magento\Framework\View\Element\Template"  name="custom.login.popup" before="-" template="Magento_Theme::login-form-popup.phtml"/>
             </block>
         </referenceContainer>
+
+        <referenceContainer name="sidebar.additional">
+            <block class="Magento\Cms\Block\Block" name="special_product" after="wishlist_sidebar">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">special-product</argument>
+                    </arguments>
+            </block>
+        </referenceContainer>
     </body>
 </page>
