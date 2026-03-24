@@ -10,5 +10,7 @@
     <div class="item title" data-role="collapsible">
         <a class="switch" data-toggle="trigger" href="#tab-movies">Tab2</a>
     </div>
-    <div id="tab-movies" class="item content" data-role="content">Movies content</div>
+    <div id="tab-movies" class="item content" data-role="content">
+        <?= $block->getChildHtml('custom.login.popup') ?>
+    </div>
 </div>
