@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Contacts</title>
+    </head>
+    <body>
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+
+        <move element="contactForm" destination="sidebar.additional"/>
+
+        <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="hero.banner">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">hero_banner_image</argument>
+                </arguments>
+            </block>
+            <container name="contact.information.data" htmlTag="div" htmlClass="contact-information" after="hero.banner">
+                <block class="Magento\Framework\View\Element\Template" name="phones.information" template="Magento_Contact::phones.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="emails.information" template="Magento_Contact::emails.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>
