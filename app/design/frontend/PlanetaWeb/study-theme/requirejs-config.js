@@ -5,10 +5,14 @@ var config = {
         }
     },
     paths: {
-        slick: 'js/slick.min'
+        slick: 'js/slick.min',
+        'jqueryMask': 'js/jquery.mask.min'
     },
     shim: {
         slick: {
+            deps: ['jquery']
+        },
+        'jqueryMask': {
             deps: ['jquery']
         }
    }

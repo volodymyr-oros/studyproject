@@ -1,8 +1,159 @@
 //
+//  Colors
+//  _____________________________________________
+
+@text-color-primary: @color-gray34;
+@text-color-secondary: @color-gray20;
+
+@form-background: @color-gray-light01;
+
+@button-color-primary: @color-orange-red1;
+@button-color-secondary: @color-orange-red4;
+
+@form-color-primary: @color-gray34;
+
+//
+//  Mixins
+//  _____________________________________________
+
+.heading {
+    text-transform: uppercase;
+    font-weight: 400;
+    .lib-css(color, @text-color-primary);
+}
+
+.link {
+    color: @text-color-primary;
+    .lib-css(color, @text-color-primary);
+    &:hover {
+        .lib-css(color, @text-color-secondary);
+    }
+}
+
+.button-primary {
+    padding: 1.7rem 2.3rem;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    background: @button-color-primary;
+    border-color: @button-color-primary;
+    border-radius: 0;
+    &:hover {
+        background: @button-color-secondary;
+        border-color: @button-color-secondary;
+    }
+}
+
+.form-input {
+    border: none;
+    border-block-end: .2rem solid @form-color-primary;
+    background: transparent;
+    &:focus {
+        box-shadow: 3px 3px 3px 1px @form-color-primary;
+    }
+}
+
+.form-input-label {
+    text-transform: uppercase;
+    font-weight: 300;
+    &:after {
+        content: '';
+    }
+}
+
+//
 //  Common
 //  _____________________________________________
 
-// & when (@media-common = true) {}
+& when (@media-common = true) {
+    .contact-index-index {
+        .page-title {
+            .heading();
+        }
+
+        .contact-information {
+            .lib-css(color, @text-color-primary);
+
+            font-size: 1.2em;
+
+            .contact__title {
+                .heading();
+    
+                &--emails::after {
+                    content: ':';
+                }
+            }
+            .contact__item {
+                .contact__link {
+                    .link();
+                }
+            }
+        }
+
+        // Contact form
+        @form-field-bottom-margin: 4rem;
+        @form-last-fild-bottom-margin: @form-field-bottom-margin * 2;
+        @label-initial-position: 0;
+        @label-focuse-position: -2.2rem;
+
+        .form.contact {
+            padding: 15px;
+            .lib-css(background-color, @form-background);
+
+            .fieldset {
+                .legend {
+                    .heading();
+                    font-size: 3rem;
+                    margin-inline-start: 1rem;
+                    margin-block-end: 6rem;
+                }
+
+                .field {
+                    position: relative;
+                    margin-block-end: @form-field-bottom-margin;
+                    &:last-child {
+                        margin-block-end: @form-last-fild-bottom-margin;
+                    }
+                    .label {
+                        position: absolute;
+                        top: 0;
+                        .form-input-label();
+                        transition: 0.3s ease;
+                    }
+                    &:has(.input-text:focus),
+                    &:has(.input-text:not(:placeholder-shown)) {
+                        .label {
+                            top: @label-focuse-position;
+                        }
+                    }
+
+                    .input-text {
+                        .form-input();
+                        font-size: 1.2rem;
+                        &::placeholder {
+                            opacity: 0;
+                            color: transparent;
+                        }
+
+                        &#telephone:focus {
+                           &::placeholder {
+                                opacity: 1;
+                                .lib-css(color, @text-color-primary);
+                            } 
+                        }
+                    }
+                }
+            }
+
+            .actions-toolbar {
+                align-self: self-end;
+                button.primary {
+                    .button-primary();
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
 
 //
 //  Desktop
@@ -10,15 +161,46 @@
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
 
-    // page-layout-2columns-right
-
     .contact-index-index {
         .column.main {
-            width: 60%;
+            width: 55%;
         }
         .sidebar-additional {
-            width: 40%;
+            width: 45%;
+        }
+
+        .contact-information {
+            margin-block-start: 20px;
+
+            .contact {
+                display: inline-block;
+                margin-inline-end: 50px;
+            }
+
+            .contact__title {
+                font-size: 2.2rem;
+                margin-inline-start: 4rem;
+            }
+
+            .contact__item {
+                margin-block-end: 20px;
+            }
+        }
+
+        .form.contact {
+            display: flex;
+            padding: 80px 0 15px 80px;
+            margin-block-end: 30px;
+
+            .fieldset {
+                margin-inline-end: 5px;
+                flex: 1 1 auto;
+                .field {
+                    .label {
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
-    
 }

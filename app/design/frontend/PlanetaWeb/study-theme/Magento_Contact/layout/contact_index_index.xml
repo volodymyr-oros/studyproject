@@ -11,12 +11,14 @@
         <move element="contactForm" destination="sidebar.additional"/>
 
         <referenceContainer name="content">
-            <block class="Magento\Cms\Block\Block" name="hero.banner">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">hero_banner_image</argument>
-                </arguments>
-            </block>
-            <container name="contact.information.data" htmlTag="div" htmlClass="contact-information" after="hero.banner">
+            <container name="contact.banner.wrapper" htmlTag="div" htmlClass="banner-wrap" before="-">
+                <block class="Magento\Cms\Block\Block" name="hero.banner">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">hero_banner_image</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="contact.information.data" htmlTag="div" htmlClass="contact-information" after="contact.banner.wrapper">
                 <block class="Magento\Framework\View\Element\Template" name="phones.information" template="Magento_Contact::phones.phtml"/>
                 <block class="Magento\Framework\View\Element\Template" name="emails.information" template="Magento_Contact::emails.phtml"/>
             </container>

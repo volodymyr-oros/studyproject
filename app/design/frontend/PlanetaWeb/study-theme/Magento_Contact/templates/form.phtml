@@ -23,12 +23,16 @@ $viewModel = $block->getViewModel();
                        id="name"
                        title="<?= $block->escapeHtmlAttr(__('Name')) ?>"
                        value="<?= $block->escapeHtmlAttr($viewModel->getUserName()) ?>"
-                       class="input-text"
+                       class="input-text maximum-length-15"
                        type="text"
-                       data-validate="{required:true}"/>
+                       data-validate="{
+                        required:true,
+                        'validate-length':true
+                       }"
+                       placeholder=" " />
             </div>
         </div>
-        <div class="field telephone">
+        <div class="field telephone required">
             <label class="label" for="telephone"><span><?= $block->escapeHtml(__('Phone')) ?></span></label>
             <div class="control">
                 <input name="telephone"
@@ -36,7 +40,9 @@ $viewModel = $block->getViewModel();
                        title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>"
                        value="<?= $block->escapeHtmlAttr($viewModel->getUserTelephone()) ?>"
                        class="input-text"
-                       type="tel" />
+                       type="tel"
+                       data-validate="{required:true, 'validate-ua-phone':true}"
+                       placeholder=" " />
             </div>
         </div>
         <div class="field email required">
@@ -48,8 +54,13 @@ $viewModel = $block->getViewModel();
                        value="<?= $block->escapeHtmlAttr($viewModel->getUserEmail()) ?>"
                        class="input-text"
                        type="email"
-                       data-validate="{required:true, 'validate-email':true}"
+                       data-validate="{
+                        required:true, 
+                        'validate-email':true,
+                        'validate-no-cyrillic':true
+                       }"
                        data-mage-init='{"mage/trim-input":{}}'
+                       placeholder=" "
                 />
             </div>
         </div>
@@ -65,6 +76,7 @@ $viewModel = $block->getViewModel();
                           cols="5"
                           rows="3"
                           data-validate="{required:true}"
+                          placeholder=" "
                 ><?= $block->escapeHtml($viewModel->getUserComment()) ?></textarea>
             </div>
         </div>
@@ -88,7 +100,28 @@ $viewModel = $block->getViewModel();
         "*": {
             "Magento_Customer/js/block-submit-on-send": {
                 "formId": "contact-form"
-            }
+            },
+            "Magento_Contact/js/custom-validation": {}
         }
     }
+</script>
+
+<script>
+    require([
+        'jquery',
+        'jqueryMask'
+    ], function ($) {
+        'use strict';
+
+        $(document).ready(function() {
+            $('#telephone').mask('+380 XX XXX-XX-XX', {
+                translation: {
+                    '0': null,
+                    'X': { pattern: /[0-9]/ }
+                },
+                placeholder: "+380 __ ___-__-__",
+                clearIfNotMatch: true
+            });
+        });
+    });
 </script>
