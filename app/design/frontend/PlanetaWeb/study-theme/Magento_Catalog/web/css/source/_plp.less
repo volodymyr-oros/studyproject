@@ -1,0 +1,32 @@
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .catalog-category-view {
+        .columns {
+            .main {
+                order: 2;
+                flex-basis: 68%;
+            }
+
+            .sidebar-main {
+                flex-basis: 28%;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .catalog-category-view {
+        .columns {
+            .main {
+                padding-inline-start: 2%;
+            }
+
+            .sidebar-main {
+                padding-inline-end: 2%;
+            }
+        }
+    }
+}
