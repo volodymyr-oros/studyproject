@@ -15,5 +15,8 @@ var config = {
         'jqueryMask': {
             deps: ['jquery']
         }
-   }
+   },
+   deps: [
+        'js/extended-validation'
+    ]
 };

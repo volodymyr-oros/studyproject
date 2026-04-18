@@ -1,0 +1,20 @@
+@error-color: @color-red9;
+@valid-color: @color-dark-green1;
+
+& when (@media-common = true) {
+    input.mage-error,
+    input.valid {
+        transition: border-color 0.6s ease, box-shadow 0.6s ease;
+    }
+    
+    input.mage-error {
+        .lib-css(border-color, @error-color);
+        .lib-css(box-shadow, 0 0 0 1px @error-color);
+    }
+    
+    input.valid {
+        .lib-css(border-color, @valid-color);
+        .lib-css(box-shadow, 0 0 0 1px @valid-color);
+    }
+}
+
