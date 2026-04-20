@@ -1,11 +1,10 @@
 define([
     'jquery',
-    'jquery/validate',
     'mage/translate'
 ], function($) {
     'use strict';
 
-    return function() {
+    return function(targetWidget) {
         $.validator.addMethod(
             'validate-no-cyrillic',
             function(value, element) {
@@ -43,5 +42,7 @@ define([
             },
             $.mage.__('An invalid operator code.')
         );
+        
+        return targetWidget;
     }
 });

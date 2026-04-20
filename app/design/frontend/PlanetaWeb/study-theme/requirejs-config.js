@@ -1,4 +1,12 @@
 var config = {
+    config: {
+        mixins: {
+            'mage/validation': {
+                'Magento_Contact/js/validation-mixin': true,
+                'js/validation-mixin': true
+            }
+        }
+    },
     map: {
         '*': {
             slickCarousel: 'js/slick-carousel',
@@ -15,8 +23,5 @@ var config = {
         'jqueryMask': {
             deps: ['jquery']
         }
-   },
-   deps: [
-        'js/extended-validation'
-    ]
+    }
 };
