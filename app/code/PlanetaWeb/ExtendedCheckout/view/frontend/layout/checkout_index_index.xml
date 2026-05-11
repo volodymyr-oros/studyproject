@@ -71,6 +71,13 @@
                                                 </item>
                                             </item>
                                         </item>
+                                        <item name="custom_sidebar" xsi:type="array">
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">PlanetaWeb_ExtendedCheckout/custom_sidebar</item>
+                                            </item>
+                                        </item>
                                     </item>
                                 </item>
                             </item>
