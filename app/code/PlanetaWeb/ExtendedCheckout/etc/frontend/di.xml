@@ -7,5 +7,6 @@
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="planetaweb_address_default_value" type="PlanetaWeb\ExtendedCheckout\Plugin\Block\Checkout\LayoutProcessor" sortOrder="100"/>
         <plugin name="planetaweb_checkout_fields_custom_comment" type="PlanetaWeb\ExtendedCheckout\Plugin\Block\Checkout\FieldsCustomCommentPlugin" sortOrder="10"/>
+        <plugin name="custom-validation-street-address" type="PlanetaWeb\ExtendedCheckout\Plugin\Model\Checkout\CustomValidationPlugin"/>
     </type>
 </config>
