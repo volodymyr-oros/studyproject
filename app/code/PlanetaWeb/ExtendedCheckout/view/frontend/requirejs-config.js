@@ -9,6 +9,9 @@ var config = {
             },
             'Magento_Checkout/js/model/shipping-rates-validation-rules': {
                 'PlanetaWeb_ExtendedCheckout/js/model/shipping-rates-validation-rules-mixin': true
+            },
+            'Magento_Ui/js/lib/validation/validator': {
+                'PlanetaWeb_ExtendedCheckout/js/ui-validation-mixin': true
             }
         }
     }

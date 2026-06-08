@@ -8,11 +8,18 @@ class CustomValidationPlugin
         \Magento\Checkout\Block\Checkout\LayoutProcessor $subject,
         array $jsLayout
     ) {
-        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['shipping-address-fieldset']['children']['company']['validation'] = [
-            'max_text_length' => 10
-        ];
-        
+        $companyField =& $jsLayout['components']['checkout']['children']['steps']['children']
+        ['shipping-step']['children']['shippingAddress']['children']
+        ['shipping-address-fieldset']['children']['company'];
+
+        $companyField['validation'] = array_merge(
+            $companyField['validation'] ?? [],
+            [
+                'max_text_length' => 10,
+                'cyrillic-only' => true
+            ]
+        );
+
         return $jsLayout;
     }
 }
